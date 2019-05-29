@@ -1,0 +1,5 @@
+__pycache__/*
+.vscode/*
+build/*
+information_coefficient.c
+information_coefficient.*.pyd
