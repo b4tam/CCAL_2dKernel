@@ -9,7 +9,7 @@ EPS = np.finfo(float).eps
 
 RANDOM_SEED = 20121020
 default = {
-    "n_grids"       : 25,
+    "n_grids"       : 1000,
     "jitter"        : 1E-10,
     "random_seed"   : RANDOM_SEED,
     "bandwidth_mult": 1.0,
@@ -68,9 +68,10 @@ def binaryInformationCoefficient(y, x, options=default):
     return np.sign(cor) * sqrt(1 - exp(-2 * mutual_information))
 
 def test():
-    y = [randint(0, 100) for i in range(1000)]
-    x = [1 if y_i >= 50 else 0 for y_i in y]
+    y = [randint(0, 1) for i in range(1000)]
+    # x = [1 if y_i >= 50 else 0 for y_i in y]
     # x = [randint(0, 1) for y_i in y]
+    x = y
     print("y:", y)
     print("x:", x)
     print(binaryInformationCoefficient(y, x))
